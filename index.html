@@ -7,16 +7,20 @@
     <meta name="description" content="Institutional-grade financial models and research infrastructure for HK and China equity markets.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ── Navigation ─────────────────────────────── -->
+    <!-- ── Custom Cursor ──────────────────────────────── -->
+    <div class="c-dot" id="c-dot"></div>
+    <div class="c-ring" id="c-ring"></div>
+
+    <!-- ── Navigation ────────────────────────────────── -->
     <nav class="nav">
         <div class="nav-inner">
             <a href="/" class="logo">
-                <!-- Replace with your logo image:
+                <!-- Replace with your logo:
                      <img src="assets/images/logo.png" alt="HKFINANCEBRO" class="logo-img">
                 -->
                 <span class="logo-text">HKFINANCEBRO</span>
@@ -29,7 +33,7 @@
         </div>
     </nav>
 
-    <!-- ── Stock Ticker ────────────────────────────── -->
+    <!-- ── Stock Ticker ───────────────────────────────── -->
     <div class="ticker-bar" aria-hidden="true">
         <div class="ticker-track">
             <span class="tick">0700.HK TENCENT <em class="up">+2.31%</em></span>
@@ -56,7 +60,7 @@
             <span class="tick-sep">◆</span>
             <span class="tick">1810.HK XIAOMI <em class="down">-0.62%</em></span>
             <span class="tick-sep">◆</span>
-            <!-- Duplicate for seamless infinite scroll -->
+            <!-- Duplicate for seamless loop -->
             <span class="tick">0700.HK TENCENT <em class="up">+2.31%</em></span>
             <span class="tick-sep">◆</span>
             <span class="tick">9988.HK ALIBABA <em class="down">-0.87%</em></span>
@@ -85,24 +89,35 @@
     </div>
 
     <main>
+
         <!-- ── Hero ──────────────────────────────────── -->
         <section class="hero">
+            <!-- Ambient orbs -->
+            <div class="hero-bg" aria-hidden="true">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+                <div class="hero-deco">HK</div>
+            </div>
+
             <div class="hero-inner">
-                <div class="hero-label">
-                    <span class="blink">●</span> HONG KONG EQUITY RESEARCH PLATFORM
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-line"></span>
+                    <span class="blink">●</span>
+                    HONG KONG EQUITY RESEARCH PLATFORM
                 </div>
                 <h1 class="hero-title">
-                    <span class="line line-1">RESEARCH</span>
-                    <span class="line line-2">LIKE AN</span>
-                    <span class="line line-3">ANALYST<span class="dot">.</span></span>
+                    <span class="line line-fill line-1">RESEARCH</span>
+                    <span class="line line-stroke line-2">LIKE AN</span>
+                    <span class="line line-fill line-3">ANALYST<span class="dot">.</span></span>
                 </h1>
                 <p class="hero-sub">
                     Institutional-grade financial models and research infrastructure
                     for HK &amp; China equity markets. Built for investors who demand more.
                 </p>
                 <div class="hero-cta">
-                    <a href="#features" class="btn-primary">EXPLORE TOOLS</a>
-                    <button class="btn-secondary" id="hero-demo-btn">REQUEST A DEMO →</button>
+                    <button class="btn-primary" id="hero-demo-btn" data-magnetic>REQUEST A DEMO</button>
+                    <a href="#features" class="btn-ghost">EXPLORE TOOLS ↓</a>
                 </div>
             </div>
 
@@ -119,14 +134,72 @@
             </div>
         </section>
 
+        <!-- ── Marquee divider ────────────────────────── -->
+        <div class="marquee-section" aria-hidden="true">
+            <div class="marquee-wrap">
+                <div class="marquee-track">
+                    <span>IB MODEL BUILDER</span><span class="m-sep">◆</span>
+                    <span class="m-outline">WSJ FINANCIAL SCRAPER</span><span class="m-sep">◆</span>
+                    <span>SECTOR ANALYSIS</span><span class="m-sep">◆</span>
+                    <span class="m-outline">HK &amp; CHINA EQUITIES</span><span class="m-sep">◆</span>
+                    <span>RESEARCH OS</span><span class="m-sep">◆</span>
+                    <span class="m-outline">QUANTITATIVE STRATEGY</span><span class="m-sep">◆</span>
+                    <span>FINANCIAL MODELLING</span><span class="m-sep">◆</span>
+                    <span class="m-outline">BLOOMBERG-GRADE DATA</span><span class="m-sep">◆</span>
+                    <!-- Duplicate for seamless loop -->
+                    <span>IB MODEL BUILDER</span><span class="m-sep">◆</span>
+                    <span class="m-outline">WSJ FINANCIAL SCRAPER</span><span class="m-sep">◆</span>
+                    <span>SECTOR ANALYSIS</span><span class="m-sep">◆</span>
+                    <span class="m-outline">HK &amp; CHINA EQUITIES</span><span class="m-sep">◆</span>
+                    <span>RESEARCH OS</span><span class="m-sep">◆</span>
+                    <span class="m-outline">QUANTITATIVE STRATEGY</span><span class="m-sep">◆</span>
+                    <span>FINANCIAL MODELLING</span><span class="m-sep">◆</span>
+                    <span class="m-outline">BLOOMBERG-GRADE DATA</span><span class="m-sep">◆</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Stats ─────────────────────────────────── -->
+        <section class="stats-section">
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <div class="stat-val">
+                        <span class="stat-num" data-count="8">0</span><span class="stat-plus">+</span>
+                    </div>
+                    <span class="stat-label">Sector Templates</span>
+                </div>
+                <div class="stat-rule"></div>
+                <div class="stat-item">
+                    <div class="stat-val">
+                        <span class="stat-num" data-count="3">0</span>
+                    </div>
+                    <span class="stat-label">Financial Statements</span>
+                </div>
+                <div class="stat-rule"></div>
+                <div class="stat-item">
+                    <div class="stat-val">
+                        <span class="stat-num" data-count="2">0</span>
+                    </div>
+                    <span class="stat-label">Core Research Tools</span>
+                </div>
+                <div class="stat-rule"></div>
+                <div class="stat-item">
+                    <div class="stat-val">
+                        <span class="stat-num" data-count="1">0</span>
+                    </div>
+                    <span class="stat-label">Unified Research OS</span>
+                </div>
+            </div>
+        </section>
+
         <!-- ── Features ──────────────────────────────── -->
         <section class="features" id="features">
             <div class="section-label">// TOOLS &amp; INFRASTRUCTURE</div>
 
             <div class="features-grid">
 
-                <!-- Card 1: IB Model Builder -->
-                <div class="feature-card">
+                <div class="feature-card" data-tilt>
+                    <div class="card-glow"></div>
                     <div class="card-header">
                         <span class="card-num">01</span>
                         <span class="card-tag">MODEL BUILDER</span>
@@ -160,8 +233,8 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Second Brain -->
-                <div class="feature-card feature-card--alt">
+                <div class="feature-card feature-card--alt" data-tilt>
+                    <div class="card-glow card-glow--teal"></div>
                     <div class="card-header">
                         <span class="card-num">02</span>
                         <span class="card-tag">RESEARCH OS</span>
@@ -199,7 +272,7 @@
         </section>
     </main>
 
-    <!-- ── Footer ────────────────────────────────── -->
+    <!-- ── Footer ────────────────────────────────────── -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-logo">HKFINANCEBRO</div>
@@ -232,8 +305,6 @@
                 <p class="modal-sub">Tell us what you're interested in and we'll be in touch.</p>
 
                 <form class="demo-form" id="demo-form" novalidate>
-
-                    <!-- Service selection -->
                     <fieldset class="form-fieldset">
                         <legend class="form-legend">I'M INTERESTED IN</legend>
                         <div class="radio-group">
@@ -256,7 +327,6 @@
                         </div>
                     </fieldset>
 
-                    <!-- Name + Email -->
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="demo-name">NAME</label>
@@ -268,7 +338,6 @@
                         </div>
                     </div>
 
-                    <!-- Message -->
                     <div class="form-group">
                         <label class="form-label" for="demo-message">MESSAGE</label>
                         <textarea class="form-input form-textarea" id="demo-message" name="message" placeholder="Tell us about your use case, firm type, or any specific requirements..." rows="4" required></textarea>
