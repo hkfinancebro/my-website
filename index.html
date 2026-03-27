@@ -23,7 +23,8 @@
             </a>
             <div class="nav-links">
                 <a href="#features" class="nav-link">TOOLS</a>
-                <a href="https://github.com/hkfinancebro" class="nav-link nav-cta" target="_blank" rel="noopener">GITHUB →</a>
+                <button class="nav-link nav-demo" id="nav-demo-btn">REQUEST A DEMO</button>
+                <a href="#" class="nav-link nav-login">LOG IN</a>
             </div>
         </div>
     </nav>
@@ -101,7 +102,7 @@
                 </p>
                 <div class="hero-cta">
                     <a href="#features" class="btn-primary">EXPLORE TOOLS</a>
-                    <a href="https://github.com/hkfinancebro" class="btn-secondary" target="_blank" rel="noopener">VIEW ON GITHUB →</a>
+                    <button class="btn-secondary" id="hero-demo-btn">REQUEST A DEMO →</button>
                 </div>
             </div>
 
@@ -214,6 +215,78 @@
             </div>
         </div>
     </footer>
+
+    <!-- ── Demo Request Modal ────────────────────────── -->
+    <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="t-btn t-close-btn"></span>
+                <span class="t-btn t-min-btn"></span>
+                <span class="t-btn t-max-btn"></span>
+                <span class="modal-title-bar">request_demo.sh — HKFINANCEBRO</span>
+                <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-label">// DEMO REQUEST</div>
+                <h2 class="modal-heading" id="modal-title">Request a Demo</h2>
+                <p class="modal-sub">Tell us what you're interested in and we'll be in touch.</p>
+
+                <form class="demo-form" id="demo-form" novalidate>
+
+                    <!-- Service selection -->
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">I'M INTERESTED IN</legend>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="service" value="IB Model Builder" required>
+                                <span class="radio-box"></span>
+                                <span class="radio-label">
+                                    <span class="radio-title">IB Model Builder</span>
+                                    <span class="radio-desc">Automated financial modelling for HK &amp; China equities</span>
+                                </span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="service" value="Quantitative Strategy">
+                                <span class="radio-box"></span>
+                                <span class="radio-label">
+                                    <span class="radio-title">Quantitative Strategy</span>
+                                    <span class="radio-desc">Data-driven systematic strategy development</span>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Name + Email -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="demo-name">NAME</label>
+                            <input class="form-input" type="text" id="demo-name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="demo-email">EMAIL</label>
+                            <input class="form-input" type="email" id="demo-email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label class="form-label" for="demo-message">MESSAGE</label>
+                        <textarea class="form-input form-textarea" id="demo-message" name="message" placeholder="Tell us about your use case, firm type, or any specific requirements..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-footer">
+                        <p class="form-note">We typically respond within 1 business day.</p>
+                        <button type="submit" class="btn-submit">SEND REQUEST →</button>
+                    </div>
+
+                    <div class="form-success" id="form-success" hidden>
+                        <span class="success-icon">✓</span>
+                        <span>Message sent. We'll be in touch shortly.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
