@@ -4,51 +4,6 @@
    Terminal typewriter · Stat counters · Scroll reveal
 ══════════════════════════════════════════════════ */
 
-// ── Custom Cursor ──────────────────────────────────────
-const dot  = document.getElementById('c-dot');
-const ring = document.getElementById('c-ring');
-
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let ringX  = mouseX;
-let ringY  = mouseY;
-let rafId;
-
-if (dot && ring) {
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        dot.style.left = mouseX + 'px';
-        dot.style.top  = mouseY + 'px';
-    });
-
-    function animateRing() {
-        ringX += (mouseX - ringX) * 0.1;
-        ringY += (mouseY - ringY) * 0.1;
-        ring.style.left = ringX + 'px';
-        ring.style.top  = ringY + 'px';
-        rafId = requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    // Hover state: enlarge ring over interactive elements
-    document.querySelectorAll('a, button, [data-magnetic], label').forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-
-    // Hide cursor when leaving window
-    document.addEventListener('mouseleave', () => {
-        dot.style.opacity  = '0';
-        ring.style.opacity = '0';
-    });
-
-    document.addEventListener('mouseenter', () => {
-        dot.style.opacity  = '1';
-        ring.style.opacity = '1';
-    });
-}
-
 // ── Magnetic Buttons ───────────────────────────────────
 document.querySelectorAll('[data-magnetic]').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
@@ -134,7 +89,7 @@ if (terminalEl) {
 // ── Animated Stat Counters ─────────────────────────────
 function countUp(el) {
     const target   = parseInt(el.dataset.count, 10);
-    const duration = 1400;
+    const duration = target >= 1000 ? 1800 : 1200;
     const start    = performance.now();
 
     function tick(now) {

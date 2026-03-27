@@ -49,7 +49,6 @@ body {
     font-family: var(--font-mono);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
     /* Faint grid */
     background-image:
         linear-gradient(rgba(255, 184, 0, 0.018) 1px, transparent 1px),
@@ -66,44 +65,6 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9999;
-}
-
-/* ── Custom Cursor ───────────────────────────────────── */
-.c-dot,
-.c-ring {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s;
-    will-change: left, top;
-}
-
-.c-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--amber);
-}
-
-.c-ring {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(255, 184, 0, 0.45);
-    transition: width 0.2s var(--ease-expo),
-                height 0.2s var(--ease-expo),
-                border-color 0.2s,
-                opacity 0.3s;
-}
-
-body.cursor-hover .c-ring {
-    width: 44px;
-    height: 44px;
-    border-color: var(--amber);
-}
-
-body.cursor-hover .c-dot {
-    transform: translate(-50%, -50%) scale(0);
 }
 
 /* ── Navigation ──────────────────────────────────────── */
@@ -159,7 +120,7 @@ body.cursor-hover .c-dot {
 
 .nav-demo {
     background: none;
-    cursor: none;
+    cursor: pointer;
     font-family: var(--font-mono);
     color: var(--amber);
     border: 1px solid rgba(255, 184, 0, 0.25);
@@ -436,7 +397,7 @@ body.cursor-hover .c-dot {
     letter-spacing: 0.18em;
     padding: 0.9rem 1.9rem;
     border: none;
-    cursor: none;
+    cursor: pointer;
     transition: background 0.2s, box-shadow 0.3s, transform 0.2s;
     will-change: transform;
     /* Subtle bottom-right shadow for depth */
@@ -951,7 +912,7 @@ body.cursor-hover .c-dot {
     border: none;
     color: var(--text-muted);
     font-size: 0.72rem;
-    cursor: none;
+    cursor: pointer;
     padding: 0.2rem 0.4rem;
     transition: color 0.2s;
     line-height: 1;
@@ -1008,7 +969,7 @@ body.cursor-hover .c-dot {
     display: flex;
     align-items: flex-start;
     gap: 0.9rem;
-    cursor: none;
+    cursor: pointer;
     padding: 0.9rem 1rem;
     border: 1px solid var(--border);
     background: rgba(4, 8, 14, 0.6);
@@ -1142,7 +1103,7 @@ body.cursor-hover .c-dot {
     font-weight: 700;
     letter-spacing: 0.16em;
     padding: 0.85rem 1.8rem;
-    cursor: none;
+    cursor: pointer;
     transition: background 0.2s, box-shadow 0.3s;
     flex-shrink: 0;
 }
@@ -1201,9 +1162,3 @@ body.cursor-hover .c-dot {
     .stat-item { flex: 0 0 100%; }
 }
 
-/* No custom cursor on touch devices */
-@media (hover: none) {
-    body { cursor: auto; }
-    .c-dot, .c-ring { display: none; }
-    button, a { cursor: pointer; }
-}
